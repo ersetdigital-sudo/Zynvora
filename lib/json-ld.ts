@@ -30,34 +30,58 @@ export const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Apakah perlu login akun game?",
+      name: "Berapa lama proses top up di Zynvora?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Tidak. Kami hanya butuh User ID dan Server ID. Jangan pernah memberikan password atau OTP ke siapa pun.",
+        text: "Rata-rata di bawah 10 detik setelah pembayaran terkonfirmasi. Saat maintenance server game, proses bisa tertunda hingga beberapa menit.",
       },
     },
     {
       "@type": "Question",
-      name: "Berapa lama item masuk?",
+      name: "Metode pembayaran apa saja yang tersedia?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Umumnya di bawah 10 detik setelah pembayaran terkonfirmasi. Saat maintenance server game, proses bisa tertunda hingga beberapa menit.",
+        text: "QRIS, DANA, OVO, GoPay, ShopeePay, BCA, BRI, Mandiri, BNI.",
       },
     },
     {
       "@type": "Question",
-      name: "Kalau transaksi gagal bagaimana?",
+      name: "Bagaimana jika saya salah memasukkan User ID?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dana dikembalikan 100% ke metode pembayaran asal, atau disimpan sebagai saldo Toplixa sesuai pilihanmu.",
+        text: "Hubungi live chat kami segera. Tim kami akan membantu memperbaiki data sebelum item dikirim.",
       },
     },
     {
       "@type": "Question",
-      name: "Bisa request game lain?",
+      name: "Apakah Zynvora menyediakan refund?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bisa. Kirim nama game lewat form pesanan atau kontak CS, dan kami tambahkan bila tersedia distributor resminya.",
+        text: "Ya. Jika top up gagal, dana dikembalikan 100% ke metode pembayaran asal.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Apakah transaksi di Zynvora aman?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Aman. Kami tidak pernah meminta password atau OTP. Cukup User ID dan Server ID.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Kapan jam operasional Zynvora?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Server top up aktif 24 jam, 7 hari seminggu. Termasuk hari libur nasional.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Game apa saja yang bisa di-top up?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mobile Legends, Free Fire, PUBG Mobile, COD Mobile, Magic Chess: Go Go. Katalog bertambah tiap bulan.",
       },
     },
   ],

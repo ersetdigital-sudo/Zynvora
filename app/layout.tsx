@@ -36,8 +36,8 @@ const sora = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Toplixa — Top Up Game Instan, Aman & Murah",
-    template: "%s — Toplixa",
+    default: "Zynvora — Top Up Game Cepat, Aman & Terpercaya",
+    template: "%s — Zynvora",
   },
   description: site.description,
   alternates: {
@@ -47,15 +47,15 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: site.locale,
-    title: "Toplixa — Top Up Game Instan, Aman & Murah",
-    description: "Top up UC, diamond, dan CP untuk PUBG Mobile, Mobile Legends, Free Fire, Magic Chess Go Go, dan Call of Duty Mobile. Proses otomatis 24 jam.",
+    title: "Zynvora — Top Up Game Cepat, Aman & Terpercaya",
+    description: "Top up diamond, UC, dan CP dalam hitungan detik. Proses otomatis 24 jam, pembayaran QRIS, e-wallet, transfer bank.",
     url: site.url,
-    images: [{ url: site.ogImage, width: 1200, height: 624, alt: "Toplixa — Top Up Game Instan, Aman & Murah" }],
+    images: [{ url: site.ogImage, width: 1200, height: 624, alt: "Zynvora — Top Up Game Cepat, Aman & Terpercaya" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Toplixa — Top Up Game Instan, Aman & Murah",
-    description: "Top up UC, diamond, dan CP untuk 5 game populer. Proses otomatis 24 jam.",
+    title: "Zynvora — Top Up Game Cepat, Aman & Terpercaya",
+    description: "Top up diamond, UC, dan CP dalam hitungan detik. Proses otomatis 24 jam.",
     images: [site.ogImage],
   },
   robots: {

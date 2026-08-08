@@ -6,12 +6,12 @@ interface LogoMarkProps {
 
 export function LogoMark({ className = "w-9 h-9", label, id = "tlxGold" }: LogoMarkProps) {
   return (
-    <svg className={className} viewBox="0 0 48 48" role="img" aria-label={label ?? "Toplixa"} aria-hidden={label ? undefined : true}>
+    <svg className={className} viewBox="0 0 48 48" role="img" aria-label={label ?? "Zynvora"} aria-hidden={label ? undefined : true}>
       <defs>
         <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f6e3b4" />
-          <stop offset="48%" stopColor="#d4af6a" />
-          <stop offset="100%" stopColor="#a8813f" />
+          <stop offset="0%" stopColor="#ffd89b" />
+          <stop offset="48%" stopColor="#f5b544" />
+          <stop offset="100%" stopColor="#ff7a45" />
         </linearGradient>
       </defs>
       <rect

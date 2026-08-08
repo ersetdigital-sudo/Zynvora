@@ -14,10 +14,10 @@ export function GamesSection({ games }: GamesSectionProps) {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
             <p className="text-[11px] tracking-[.25em] uppercase text-white/40">Katalog</p>
-            <h2 className="mt-3 font-display h-sec font-semibold">Lima game, satu tempat.</h2>
+            <h2 className="mt-3 font-display h-sec font-semibold">Pilih game, langsung isi form.</h2>
           </div>
           <p className="text-white/50 max-w-sm text-sm font-light">
-            Semua produk resmi dan legal. Cukup masukkan User ID, pilih nominal, bayar — selesai.
+            Lima judul paling dicari di Indonesia. Tekan "Top Up" dan nominal akan menyesuaikan secara otomatis.
           </p>
         </div>
 

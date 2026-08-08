@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #070707;
-  --color-panel: #0e0e0f;
+  --color-ink: #07070b;
+  --color-panel: #0c0b10;
   --color-raise: #131315;
-  --color-fg: #f5f5f5;
-  --color-gold: #d4af6a;
-  --color-gold-bright: #e7cf9c;
-  --color-gold-deep: #a8813f;
-  --color-muted: #9a9a9f;
+  --color-fg: #eef1f8;
+  --color-gold: #f5b544;
+  --color-gold-bright: #ffd89b;
+  --color-gold-deep: #ff7a45;
+  --color-muted: #98a0b8;
 
   --font-sans: var(--font-manrope);
   --font-display: var(--font-sora);
 
   --radius-card: 1.25rem;
-  --shadow-card: 0 24px 60px -30px rgba(212, 175, 106, 0.55);
+  --shadow-card: 0 24px 60px -30px rgba(245, 181, 68, 0.55);
 }
 
 @layer base {
@@ -46,7 +46,7 @@
 @layer components {
   /* Gold gradient headline text */
   .gold-text {
-    background: linear-gradient(100deg, #f4e3bd, #d4af6a 45%, #a9814a);
+    background: linear-gradient(100deg, #fff 10%, #f5b544 45%, #ff7a45 85%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -87,14 +87,14 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(120% 90% at 50% 0%, rgba(212, 175, 106, 0.14), transparent 60%);
+    background: radial-gradient(120% 90% at 50% 0%, rgba(245, 181, 68, 0.14), transparent 60%);
     opacity: 0;
     transition: opacity 0.35s;
     pointer-events: none;
   }
   .card:hover {
     transform: translateY(-6px);
-    border-color: rgba(212, 175, 106, 0.45);
+    border-color: rgba(245, 181, 68, 0.45);
     box-shadow: var(--shadow-card);
   }
   .card:hover::after {
@@ -111,12 +111,14 @@
 
   /* Primary gold button */
   .btn-gold {
-    background: linear-gradient(100deg, #e7cf9c, #c9a35d);
-    color: #141007;
-    transition: filter 0.2s;
+    background: linear-gradient(100deg, #f5b544, #ff7a45);
+    color: #06070d;
+    transition: filter 0.2s, transform 0.2s;
+    box-shadow: 0 10px 34px -12px rgba(245, 181, 68, 0.75);
   }
   .btn-gold:hover {
     filter: brightness(1.08);
+    transform: translateY(-2px);
   }
 
   /* Game logo stage */
