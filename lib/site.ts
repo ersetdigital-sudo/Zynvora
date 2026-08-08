@@ -5,5 +5,5 @@ export const site = {
   url: "https://zynvora.net",
   locale: "id_ID",
   themeColor: "#07070b",
-  ogImage: "/images/og-zynvora.svg",
+  ogImage: "/images/og-zynvora.png",
 } as const;
