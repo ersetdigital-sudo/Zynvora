@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { createSupabaseClient } from "@/lib/supabase";
 import { updateQrisImage } from "../actions";
 import { showToast } from "@/components/ui/Toast";
 import { ToastContainer } from "@/components/ui/Toast";
@@ -24,19 +23,33 @@ export function QrisManager({ currentUrl }: QrisManagerProps) {
 
     setUploading(true);
     try {
-      const supabase = createSupabaseClient();
-      const ext = file.name.split(".").pop() ?? "png";
-      const path = `qris/qris-${Date.now()}.${ext}`;
+      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
-      const { error: uploadError } = await supabase.storage
-        .from("admin")
-        .upload(path, file, { contentType: file.type });
+      if (!cloudName || !uploadPreset) {
+        throw new Error("Cloudinary belum dikonfigurasi.");
+      }
 
-      if (uploadError) throw uploadError;
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", uploadPreset);
+      formData.append("folder", "zynvora/qris");
 
-      const { data: urlData } = supabase.storage.from("admin").getPublicUrl(path);
-      await updateQrisImage(urlData.publicUrl);
-      setPreview(urlData.publicUrl);
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        { method: "POST", body: formData }
+      );
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error?.message || "Upload gagal.");
+      }
+
+      const data = await res.json();
+      const imageUrl = data.secure_url as string;
+
+      await updateQrisImage(imageUrl);
+      setPreview(imageUrl);
       showToast("success", "QRIS berhasil diupdate.");
     } catch (e: unknown) {
       showToast("error", "Gagal upload: " + String(e));

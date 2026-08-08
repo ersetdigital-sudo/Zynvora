@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LogoMark } from "@/components/ui/LogoMark";
+import { createSupabaseClient } from "@/lib/supabase";
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> },
@@ -14,7 +15,15 @@ const NAV = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
   const isLogin = pathname === "/admin/login";
+
+  useEffect(() => {
+    const supabase = createSupabaseClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setUserEmail(data.user?.email ?? null);
+    });
+  }, []);
 
   if (isLogin) {
     return <>{children}</>;
@@ -48,8 +57,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           ))}
         </nav>
         <div className="px-4 py-3 border-t border-white/[0.04]">
+          {userEmail && (
+            <p className="text-[11px] text-white/30 truncate mb-2" title={userEmail}>
+              {userEmail}
+            </p>
+          )}
           <form action="/api/auth/signout" method="post">
-            <button type="submit" className="text-xs text-white/30 hover:text-white/60 transition">
+            <button type="submit" className="flex items-center gap-2 w-full px-3 py-2 text-sm text-white/40 hover:text-white/80 hover:bg-white/[0.03] rounded-lg transition">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+              </svg>
               Keluar
             </button>
           </form>
@@ -94,8 +111,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               </Link>
             ))}
             <div className="px-3 pt-2 border-t border-white/[0.04] mt-1">
+              {userEmail && (
+                <p className="text-[11px] text-white/30 truncate mb-2 px-1" title={userEmail}>
+                  {userEmail}
+                </p>
+              )}
               <form action="/api/auth/signout" method="post">
-                <button type="submit" className="text-xs text-white/30 hover:text-white/60 transition">
+                <button type="submit" className="flex items-center gap-2 w-full px-3 py-2.5 text-sm text-white/40 hover:text-white/80 hover:bg-white/[0.03] rounded-lg transition">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+                  </svg>
                   Keluar
                 </button>
               </form>
